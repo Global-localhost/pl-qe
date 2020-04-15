@@ -1,6 +1,7 @@
 import setuptools
 
-requirements = ["pennylane"]
+requirements = ['pennylane @ git+https://github.com/XanaduAI/pennylane@remove_about'
+    ]
 
 setuptools.setup(
     name                            = "pl_qe",
