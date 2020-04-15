@@ -3,7 +3,7 @@ import setuptools
 requirements = ["pennylane"]
 
 setuptools.setup(
-    name                            = "pl-qe",
+    name                            = "pl_qe",
     packages                        = setuptools.find_packages(where = "python"),
     package_dir                     = {
         "" : "python"
