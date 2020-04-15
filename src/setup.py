@@ -9,7 +9,7 @@ setuptools.setup(
     package_dir                     = {
         "" : "python"
     },
-    install_requires                = requirements,
+    #install_requires                = requirements,
     classifiers                     = (
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
