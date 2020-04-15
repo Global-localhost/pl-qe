@@ -11,7 +11,7 @@ spec:
       parameters:
 
       - name: command
-        value: python3 -m pip install pennylane @ git+https://github.com/XanaduAI/pennylane@remove_about#egg=pennylane && python3 main.py
+        value: python3 -m pip install git+https://github.com/XanaduAI/pennylane@remove_about#egg=pennylane && python3 main.py
 
       artifacts:
       - name: main-script
