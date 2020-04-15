@@ -1,6 +1,6 @@
 import setuptools
 
-requirements = ['pennylane @ git+https://github.com/XanaduAI/pennylane@remove_about#egg=pennylane'
+requirements = ['pip', 'pennylane @ git+https://github.com/XanaduAI/pennylane@remove_about#egg=pennylane'
     ]
 
 setuptools.setup(
