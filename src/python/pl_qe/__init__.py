@@ -1,1 +1,1 @@
-from test import about
+from .test import about
