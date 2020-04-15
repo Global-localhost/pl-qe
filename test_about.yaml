@@ -1,0 +1,36 @@
+ZapOSApiVersion: v1alpha1
+
+kind: Workflow
+
+resources:
+
+- name: pl_qe
+  type: git
+  parameters:
+    url: "git@github.com:XanaduAI/pl-qe.git"
+    branch: "master"
+
+metadata:
+
+  generateName: test-pl-qe-
+
+spec:
+
+  entrypoint: about
+
+  arguments:
+    parameters:
+
+    - s3-bucket: quantum-engine
+    - s3-key: test/pl_qe/
+
+  templates:
+
+  - name: about
+    steps:
+
+    - - name: get-about-step
+        template: get-about
+        arguments:
+          parameters:
+          - resources: [pl_qe]
