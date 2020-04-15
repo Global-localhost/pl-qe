@@ -1,1 +1,1 @@
-.pl_qe import about
+from pl_qe.test import about
