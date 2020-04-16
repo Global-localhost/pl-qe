@@ -9,10 +9,6 @@ spec:
     inputs:
 
       parameters:
-      - name: docker-image
-        value: z-ml
-      - name: docker-tag
-        value: latest
       - name: command
         value: python3 -m pip install git+https://github.com/XanaduAI/pennylane.git@remove_about#egg=pennylane && git clone https://github.com/zapatacomputing/z-quantum-core/ && cd z-quantum-core/src && touch ../README.md && python3 -m pip install . && cd ../.. && python3 main.py
 
