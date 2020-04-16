@@ -1,4 +1,4 @@
-import setuptools
+from setuptools import setup, find_packages
 
 requirements = [
     "pip",
@@ -8,7 +8,7 @@ requirements = [
 
 info = {
     "name": "pl_qe",
-    "packages": setuptools.find_packages(where="python"),
+    "packages": find_packages(where="python"),
     "package_dir": {"": "python"},
     "install_require": requirements,
 }
