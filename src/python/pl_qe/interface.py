@@ -1,9 +1,8 @@
 import pennylane as qml
+from pyquil.wavefunction import Wavefunction
 
 from zquantum.core.interfaces.backend import QuantumSimulator
-from zquantum.core.measurement import load_wavefunction, ExpectationValues, sample_from_wavefunction
-from .utils import save_symbolic_operator
-from openfermion.ops import SymbolicOperator
+from zquantum.core.measurement import ExpectationValues, sample_from_wavefunction
 
 
 
@@ -74,11 +73,8 @@ class PennyLaneDevice(QuantumSimulator):
         @qml.qnode(dev)
         def _circuit():
         	ansatz(wires=list(range()))
-        qnodes = qml.map(obs, ansatz, dev, measure="expval")
-        exp_val = qml.dot(qnodes, coeffs)
+        	return qml.Identity(0)
 
-
-        wavefunction = load_wavefunction('./temp_qhipster_wavefunction.json')
-        os.remove('./temp_qhipster_circuit.json')
-        os.remove('./temp_qhipster_wavefunction.json')
-        return wavefunction
+        _circuit()
+        state = dev.state
+        return Wavefunction(state)
