@@ -14,12 +14,11 @@ requirements = [
 info = {
     "name": "qe-pennylane",
     "version": version,
-    "author": "Xanadu Inc."
+    "author": "Xanadu Inc.",
     "packages": find_packages(where="python"),
     "package_dir": {"": "python"},
     "install_require": requirements,
     "description": "PennyLane device for Quantum Engine",
-    'long_description': open('README.rst').read(),
     'provides': ["qe-pennylane"],
 }
 
