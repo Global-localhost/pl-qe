@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 
-with open("python/qe-pennylane/_version.py") as f:
+with open("python/qe_pennylane/_version.py") as f:
     version = f.readlines()[-1].split()[-1].strip("\"'")
 
 
@@ -12,7 +12,7 @@ requirements = [
 
 
 info = {
-    "name": "qe-pennylane",
+    "name": "qe_pennylane",
     "version": version,
     "author": "Xanadu Inc.",
     "packages": find_packages(where="python"),
