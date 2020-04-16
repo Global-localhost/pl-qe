@@ -1,0 +1,42 @@
+ZapOSApiVersion: v1alpha1
+
+kind: Workflow
+
+resources:
+
+- name: pl_qe
+  type: git
+  parameters:
+    url: "git@github.com:XanaduAI/pl-qe.git"
+    branch: "master"
+
+- name: z-quantum-core
+  type: git
+  parameters:
+    url: "git@github.com:zapatacomputing/z-quantum-core.git"
+    branch: "master"
+
+metadata:
+
+  generateName: test-pl-qe-
+
+spec:
+
+  entrypoint: simple-circuit
+
+  arguments:
+    parameters:
+
+    - s3-bucket: quantum-engine
+    - s3-key: test/pl_qe/
+
+  templates:
+
+  - name: simple-circuit
+    steps:
+
+    - - name: run-circuit-step
+        template: run-circuit
+        arguments:
+          parameters:
+          - resources: [z-quantum-core, pl_qe]
