@@ -2,13 +2,23 @@ import setuptools
 
 requirements = [
     "pip",
-    "pennylane @ git+https://github.com/XanaduAI/pennylane@remove_about#egg=pennylane",
+    "pennylane @ git+https://github.com/XanaduAI/pennylane#egg=pennylane",
 ]
 
-setuptools.setup(
-    name="pl_qe",
-    packages=setuptools.find_packages(where="python"),
-    package_dir={"": "python"},
-    # install_requires                = requirements,
-    classifiers=("Programming Language :: Python :: 3", "Operating System :: OS Independent",),
-)
+
+info = {
+    "name": "pl_qe",
+    "packages": setuptools.find_packages(where="python"),
+    "package_dir": {"": "python"},
+    "install_require": requirements,
+}
+
+
+classifiers = [
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+
+
+setup(classifiers=classifiers, **(info))
