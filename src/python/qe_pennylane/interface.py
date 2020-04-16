@@ -1,4 +1,5 @@
 import pennylane as qml
+import numpy as np
 from pyquil.wavefunction import Wavefunction
 
 from zquantum.core.interfaces.backend import QuantumSimulator
@@ -50,9 +51,8 @@ class PennyLaneDevice(QuantumSimulator):
         dev = qml.device(self.device, wires=num_qubits)
 
         ansatz = qml.from_qiskit(circuit.to_qiskit())
-        qnodes = qml.map(obs, ansatz, dev, measure="expval")
-        exp_val = qml.dot(qnodes, coeffs)
-        return ExpectationValues(values=exp_val())
+        qnodes = qml.map(lambda weights, **kwargs: ansatz(**kwargs), obs, dev, measure="expval")
+        return ExpectationValues(values=[qnode([]) for qnode in qnodes])
 
     def get_wavefunction(self, circuit):
         """

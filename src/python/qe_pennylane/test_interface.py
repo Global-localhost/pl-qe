@@ -3,15 +3,15 @@ import numpy as np
 from zquantum.core.circuit import Circuit
 from zquantum.core.bitstring_distribution import BitstringDistribution
 from openfermion.ops import QubitOperator, IsingOperator
-from .simulator import QHipsterSimulator
+from interface import PennyLaneDevice
 from pyquil import Program
 from pyquil.gates import H, CNOT, RX, CZ
 
-class TestQHipster(unittest.TestCase):
+class TestPennyLaneDevice(unittest.TestCase):
 
     def setUp(self):
-        self.wf_simulator = QHipsterSimulator()
-        self.sampling_simulator = QHipsterSimulator(n_samples=1000)
+        self.wf_simulator = PennyLaneDevice()
+        self.sampling_simulator = PennyLaneDevice(n_samples=1000)
         self.all_simulators = [self.wf_simulator, self.sampling_simulator]
 
     def test_get_exact_expectation_values(self):
