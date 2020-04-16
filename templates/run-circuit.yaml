@@ -14,7 +14,7 @@ spec:
       - name: docker-tag
         value: latest
       - name: command
-        value: python3 -m pip install git+https://github.com/XanaduAI/pennylane.git@remove_about#egg=pennylane && python3 main.py
+        value: python3 -m pip install git+https://github.com/XanaduAI/pennylane.git@remove_about#egg=pennylane && git clone https:github.com/zapatacomputing/z-quantum-core/ && cd src && python3 -m pip install . python3 main.py
 
       artifacts:
       - name: main-script
