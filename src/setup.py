@@ -19,7 +19,7 @@ info = {
     "package_dir": {"": "python"},
     "install_require": requirements,
     "description": "PennyLane device for Quantum Engine",
-    'provides': ["qe-pennylane"],
+    'provides': ["qe_pennylane"],
 }
 
 

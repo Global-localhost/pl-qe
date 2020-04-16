@@ -21,7 +21,7 @@ spec:
         path: /app/main.py
         raw:
           data: |
-            from pl_qe import simple_circuit
+            from qe-pennylane import simple_circuit
             simple_circuit()
 
     outputs:
