@@ -52,7 +52,7 @@ class PennyLaneDevice(QuantumSimulator):
         ansatz = qml.from_qiskit(circuit.to_qiskit())
         qnodes = qml.map(obs, ansatz, dev, measure="expval")
         exp_val = qml.dot(qnodes, coeffs)
-        return ExpectationValues(values=exp_val)
+        return ExpectationValues(values=exp_val())
 
     def get_wavefunction(self, circuit):
         """
@@ -72,9 +72,8 @@ class PennyLaneDevice(QuantumSimulator):
 
         @qml.qnode(dev)
         def _circuit():
-        	ansatz(wires=list(range()))
+        	ansatz(wires=list(range(num_qubits)))
         	return qml.Identity(0)
 
         _circuit()
-        state = dev.state
-        return Wavefunction(state)
+        return Wavefunction(dev.state)

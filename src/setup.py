@@ -1,16 +1,26 @@
 from setuptools import setup, find_packages
 
+
+with open("python/qe-pennylane/_version.py") as f:
+    version = f.readlines()[-1].split()[-1].strip("\"'")
+
+
 requirements = [
-    "pip",
-    "git+https://github.com/XanaduAI/pennylane#egg=pennylane",
+    "pennylane",
+    "z-quantum-core",
 ]
 
 
 info = {
-    "name": "pl_qe",
+    "name": "qe-pennylane",
+    "version": version,
+    "author": "Xanadu Inc."
     "packages": find_packages(where="python"),
     "package_dir": {"": "python"},
     "install_require": requirements,
+    "description": "PennyLane device for Quantum Engine",
+    'long_description': open('README.rst').read(),
+    'provides': ["qe-pennylane"],
 }
 
 
