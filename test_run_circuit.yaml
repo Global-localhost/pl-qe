@@ -39,5 +39,4 @@ spec:
         template: run-circuit
         arguments:
           parameters:
-          - resources: [z-quantum-core]
-          - resources: [pl_qe]
+          - resources: [z-quantum-core, pl_qe]
