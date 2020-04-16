@@ -73,7 +73,7 @@ class PennyLaneDevice(QuantumSimulator):
         @qml.qnode(dev)
         def _circuit():
         	ansatz(wires=list(range(num_qubits)))
-        	return qml.Identity(0)
+        	return qml.expval(qml.Identity(0))
 
         _circuit()
         return Wavefunction(dev.state)
