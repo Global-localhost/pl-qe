@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 requirements = [
     "pip",
-    "pennylane @ git+https://github.com/XanaduAI/pennylane#egg=pennylane",
+    "git+https://github.com/XanaduAI/pennylane#egg=pennylane",
 ]
 
 
