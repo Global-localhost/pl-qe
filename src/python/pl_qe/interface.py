@@ -66,15 +66,17 @@ class PennyLaneDevice(QuantumSimulator):
             pyquil.Wafefunction: wavefunction object.
 
         """
-        # First, save the circuit object to file in JSON format
-        save_circuit(circuit, './temp_qhipster_circuit.json')
+        num_qubits = len(circuit.get_qubits())
+        dev = qml.device(self.device, wires=num_qubits)
 
+        ansatz = qml.from_qiskit(circuit.to_qiskit())
 
-        # Parse JSON files for qhipster usage
-        subprocess.call(['/app/json_parser/json_to_qasm.o', './temp_qhipster_circuit.json'])
-        # Run simulation
-        subprocess.call(['/app/zapata/zapata_interpreter_no_mpi_get_wf.out',
-                         './temp_qhipster_circuit.txt', str(self.nthreads), './temp_qhipster_wavefunction.json'])
+        @qml.qnode(dev)
+        def _circuit():
+        	ansatz(wires=list(range()))
+        qnodes = qml.map(obs, ansatz, dev, measure="expval")
+        exp_val = qml.dot(qnodes, coeffs)
+
 
         wavefunction = load_wavefunction('./temp_qhipster_wavefunction.json')
         os.remove('./temp_qhipster_circuit.json')
