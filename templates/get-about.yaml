@@ -9,7 +9,6 @@ spec:
     inputs:
 
       parameters:
-
       - name: command
         value: python3 main.py
 

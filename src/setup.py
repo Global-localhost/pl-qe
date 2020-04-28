@@ -17,6 +17,6 @@ setuptools.setup(
         "pennylane",
         "pennylane-qiskit",
         "pennylane-qchem",
-        "z-quantum-core",
+        #"z-quantum-core",
     ]
 )
