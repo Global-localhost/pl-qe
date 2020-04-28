@@ -39,4 +39,5 @@ spec:
         template: run-circuit
         arguments:
           parameters:
+          - docker-image: z-quantum-default
           - resources: [z-quantum-core, pl_qe]
