@@ -22,5 +22,5 @@ spec:
 
     outputs:
       artifacts:
-      - name: about
+      - name: circuit_output
         path: /app/circuit_output.json
