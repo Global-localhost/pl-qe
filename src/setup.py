@@ -1,33 +1,22 @@
-from setuptools import setup, find_packages
+import setuptools
+import os
 
-
-with open("python/qe_pennylane/_version.py") as f:
-    version = f.readlines()[-1].split()[-1].strip("\"'")
-
-
-requirements = [
-    "pennylane",
-    "z-quantum-core",
-]
-
-
-info = {
-    "name": "qe_pennylane",
-    "version": version,
-    "author": "Xanadu Inc.",
-    "packages": find_packages(where="python"),
-    "package_dir": {"": "python"},
-    "install_require": requirements,
-    "description": "PennyLane device for Quantum Engine",
-    'provides': ["qe_pennylane"],
-}
-
-
-classifiers = [
-    "Operating System :: OS Independent",
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3",
-]
-
-
-setup(classifiers=classifiers, **(info))
+setuptools.setup(
+    name="qe-pennylane",
+    version="0.1.0",
+    author="Xanadu Inc.",
+    description="PennyLane device for Quantum Engine",
+    url="https://github.com/XanaduAI/pl-qe",
+    packages=['qe_pennylane'],
+    package_dir={'' : 'python'},
+    classifiers=(
+        "Programming Language :: Python :: 3",
+        "Operating System :: OS Independent",
+    ),
+    install_requires=[
+        "pennylane",
+        "pennylane-qiskit",
+        "pennylane-qchem",
+        "z-quantum-core",
+    ]
+)
