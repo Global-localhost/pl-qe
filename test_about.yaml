@@ -33,4 +33,5 @@ spec:
         template: get-about
         arguments:
           parameters:
+          - docker-image: z-quantum-default
           - resources: [pl_qe]
