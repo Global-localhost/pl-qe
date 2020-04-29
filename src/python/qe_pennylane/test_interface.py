@@ -3,9 +3,10 @@ import numpy as np
 from zquantum.core.circuit import Circuit
 from zquantum.core.bitstring_distribution import BitstringDistribution
 from openfermion.ops import QubitOperator, IsingOperator
-from interface import PennyLaneDevice
 from pyquil import Program
 from pyquil.gates import H, CNOT, RX, CZ
+
+from .interface import PennyLaneDevice
 
 class TestPennyLaneDevice(unittest.TestCase):
 

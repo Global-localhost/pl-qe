@@ -1,4 +1,4 @@
-from .test import simple_circuit
-#from .interface import PennyLaneDevice
-
+from .interface import PennyLaneDevice
 from pennylane import about
+
+from .test import simple_circuit
