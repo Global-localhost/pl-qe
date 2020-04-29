@@ -55,7 +55,7 @@ spec:
   arguments:
     parameters:
     - s3-bucket: quantum-engine
-    - s3-key: projects/examples/hydrogen/data
+    - s3-key: plqe
     - docker-image: z-quantum-default
     - docker-tag: latest
 
